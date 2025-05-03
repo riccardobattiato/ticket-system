@@ -6,6 +6,7 @@ have to look at it again once it’s been created."
 
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
+import { Database } from "./types";
 
 export const getSupabaseReqResClient = ({
   request,
@@ -16,7 +17,7 @@ export const getSupabaseReqResClient = ({
     value: NextResponse.next({ request }),
   };
 
-  const supabase = createServerClient(
+  const supabase = createServerClient<Database>(
     process.env.SUPABASE_URL!,
     process.env.SUPABASE_ANON_KEY!,
     {
