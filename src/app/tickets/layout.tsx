@@ -9,7 +9,7 @@ export default function TicketsLayout(pageProps: PropsWithChildren) {
       <AppSidebar />
       <SidebarInset>
         <SiteHeader title="Tickets" />
-        <div className="p-2">{pageProps.children}</div>
+        <div className="p-4 lg:p-6">{pageProps.children}</div>
       </SidebarInset>
     </SidebarProvider>
   );
