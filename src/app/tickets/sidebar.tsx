@@ -1,3 +1,4 @@
+"use client";
 import { List, Users, Plus, ChevronDown, ChevronUp, User2 } from "lucide-react";
 
 import {
@@ -19,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 // Menu items.
 const items = [
   {
@@ -39,6 +41,7 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
   return (
     <Sidebar>
       <SidebarHeader>
@@ -69,7 +72,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
