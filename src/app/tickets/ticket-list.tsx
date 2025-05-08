@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Ticket } from "@/lib/types";
+import Link from "next/link";
 
 type Props = {
   tickets: Ticket[];
@@ -26,7 +27,9 @@ const TicketList = ({ tickets }: Props) => {
         {tickets.map((ticket) => (
           <TableRow key={ticket.id}>
             <TableCell>{ticket.id}</TableCell>
-            <TableCell>{ticket.title}</TableCell>
+            <TableCell>
+              <Link href={`/tickets/details/${ticket.id}`}>{ticket.title}</Link>
+            </TableCell>
             <TableCell>{ticket.status}</TableCell>
           </TableRow>
         ))}
